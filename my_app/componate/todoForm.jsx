@@ -17,6 +17,8 @@ const TodoForm = () => {
     const SubmitHandle = async (e) => {
 
         e.preventDefault()
+        console.log(todoFromData)
+        router.refresh()
         const res = await fetch("/api/todo", {
             method: "POST",
 
@@ -24,13 +26,14 @@ const TodoForm = () => {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(todoFromData)
-        }).finally(() => router.refresh())
+        })
         let data = await res.json();
         if (data?.success) {
             setTodoFromData(initialBlogFormData)
-         
+            toast.success(data.msg)
            
             console.log("working....")
+            router.refresh()
         }
         toast(data.msg)
     }

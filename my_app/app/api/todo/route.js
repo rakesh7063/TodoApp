@@ -6,6 +6,7 @@ export async function GET(req) {
     try {
         await ConnectToDb();
         const allTodoData = await Todo.find({});
+        console.log("Get Method Call")
         if (allTodoData) {
             return NextResponse.json({
                 "success": true,

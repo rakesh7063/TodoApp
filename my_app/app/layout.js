@@ -23,6 +23,9 @@ export default function RootLayout({ children }) {
           <li>
           <Link href={"/todo"}>Todo</Link>
           </li>
+          <li>
+          <Link href={"/task"}>Task</Link>
+          </li>
         </ul>
       </nav>
       {children}
